@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accordion FAQs</title>
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ 
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+  
+    .accordion {
+      background-color: #f1f1f1;
+      color: #333;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      transition: 0.4s;
+    }
+
+    .active, .accordion:hover {
+      background-color: #ddd;
+    }
+
+    .panel {
+      padding: 0 18px;
+      display: none;
+      background-color: white;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+
+<div class="w3-container">
+  <h2>FAQs</h2>
+
+
+  <button class="accordion">Question 1</button>
+  <div class="panel">
+    <p>Answer to question 1 goes here.</p>
+  </div>
+
+  <button class="accordion">Question 2</button>
+  <div class="panel">
+    <p>Answer to question 2 goes here.</p>
+  </div>
+
+  <button class="accordion">Question 3</button>
+  <div class="panel">
+    <p>Answer to question 3 goes here.</p>
+  </div>
+</div>
+
+<script>
+
+  $(document).ready(function(){
+    $(".accordion").click(function(){
+      $(this).toggleClass("active");
+      var panel = $(this).next();
+      if (panel.css("display") === "block") {
+        panel.css("display", "none");
+      } else {
+        panel.css("display", "block");
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

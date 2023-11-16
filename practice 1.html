@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Admission Form</title>
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+
+    .surprise-dropdown {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="w3-container w3-teal">
+  <h2>School Admission Form</h2>
+</div>
+
+<div class="form-container w3-card-4">
+  <form>
+    <div class="form-group">
+      <label for="studentName">Student Name:</label>
+      <input type="text" id="studentName" name="studentName" class="w3-input">
+    </div>
+
+    <div class="form-group">
+      <label for="grade">Grade:</label>
+      
+      <div class="w3-dropdown-click">
+        <button onmouseenter="showGrades()" class="w3-button w3-border" id="selectedGrade">Select Grade</button>
+        <div id="gradeDropdown" class="w3-dropdown-content w3-bar-block w3-border surprise-dropdown" onmouseenter="showGrades()" onmouseleave="hideGrades()">
+          <a href="#" class="w3-bar-item w3-button" onclick="selectGrade('Grade 1')">Grade 1</a>
+          <a href="#" class="w3-bar-item w3-button" onclick="selectGrade('Grade 2')">Grade 2</a>
+          <a href="#" class="w3-bar-item w3-button" onclick="selectGrade('Grade 3')">Grade 3</a>
+          <a href="#" class="w3-bar-item w3-button" onclick="selectGrade('Grade 4')">Grade 4</a>
+          <a href="#" class="w3-bar-item w3-button" onclick="selectGrade('Grade 5')">Grade 5</a>
+          <a href="#" class="w3-bar-item w3-button" onclick="selectGrade('Grade 6')">Grade 6</a>
+          <a href="#" class="w3-bar-item w3-button" onclick="selectGrade('Grade 7')">Grade 7</a>
+          <a href="#" class="w3-bar-item w3-button" onclick="selectGrade('Grade 8')">Grade 8</a>
+          <a href="#" class="w3-bar-item w3-button" onclick="selectGrade('Grade 9')">Grade 9</a>
+          <a href="#" class="w3-bar-item w3-button" onclick="selectGrade('Grade 10')">Grade 10</a>
+          <a href="#" class="w3-bar-item w3-button" onclick="selectGrade('Grade 11')">Grade 11</a>
+          <a href="#" class="w3-bar-item w3-button" onclick="selectGrade('Grade 12')">Grade 12</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="parentName">Parent's Name:</label>
+      <input type="text" id="parentName" name="parentName" class="w3-input">
+    </div>
+
+    <div class="form-group">
+      <label for="contactNumber">Contact Number:</label>
+      <input type="text" id="contactNumber" name="contactNumber" class="w3-input">
+    </div>
+
+    <button type="submit" class="w3-button w3-teal">Submit Application</button>
+  </form>
+</div>
+
+<script>
+  function showGrades() {
+    $(".surprise-dropdown").slideDown("slow");
+  }
+
+  function hideGrades() {
+    $(".surprise-dropdown").slideUp("slow");
+  }
+
+  function selectGrade(grade) {
+    $("#selectedGrade").html("Selected: " + grade);
+    $(".surprise-dropdown").slideUp("slow");
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery with Filters</title>
+    <style>
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .gallery img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .filter-btns {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="filter-btns">
+    <button class="filter" data-category="all">All</button>
+    <button class="filter" data-category="animals">Animals</button>
+    <button class="filter" data-category="nature">Nature</button>
+</div>
+
+<div class="gallery">
+    <img src="lion.png" class="item" data-category="animals">
+    <img src="nature.png" class="item" data-category="nature">
+   
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.item').show();
+
+        $('.filter').on('click', function () {
+            var category = $(this).data('category');
+
+            if (category === 'all') {
+                $('.item').show();
+            } else {
+                $('.item').hide();
+                $('.item[data-category="' + category + '"]').show();
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
